@@ -1,4 +1,4 @@
-// Shilah Watson 1.6
+// Shilah Watson 1.7
 import { useState } from 'react'
 
 import './App.css'
@@ -17,7 +17,9 @@ function App() {
     )
     
   }
-
+  const total = good + neutral + bad;
+  const average = total === 0 ? 0 : (good * 1 + neutral * 0 + bad * -1) / total;
+  const positive = total === 0 ? 0 : (good / total) * 100;
 
   return (
     //function of buttons
@@ -33,6 +35,9 @@ function App() {
         <p>good {good}</p>
         <p>neutral {neutral}</p>
         <p>bad {bad}</p>
+        <p>all {total}</p>
+        <p>average {average.toFixed(1)}</p>
+        <p>positive {positive.toFixed(1)} %</p>
 
       </div>
     </>
